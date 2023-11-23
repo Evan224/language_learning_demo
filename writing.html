@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duolingo Style Writing Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <!-- Writing Test Container -->
+        <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+
+            <!-- Test Question -->
+            <div class="mb-4 text-center">
+                <p class="text-lg font-semibold">Please write your answer below:</p>
+            </div>
+
+            <!-- Text Input for Answer -->
+            <div class="mb-4">
+                <textarea id="userAnswer" class="w-full bg-gray-200 text-black font-semibold py-2 px-4 rounded-lg"
+                    placeholder="Type your answer here..."></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-center">
+                <button onclick="submitAnswer()"
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">
+                    Submit Answer
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function submitAnswer() {
+            var userAnswer = document.getElementById("userAnswer").value;
+            alert("Your answer: " + userAnswer);
+        }
+    </script>
+
+</body>
+
+</html>
