@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duolingo Style Listening Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("testAudio");
+            if (audio) {
+                if (!audio.paused) {
+                    audio.pause();
+                } else {
+                    audio.play();
+                }
+            }
+        }
+
+        function selectOption(selectedElement) {
+            // 取消所有选项的选中状态
+            document.querySelectorAll('.option-button').forEach(function (button) {
+                button.classList.remove('bg-blue-500', 'text-white');
+                button.classList.add('bg-gray-200', 'text-black');
+            });
+
+            // 为选中的选项设置选中状态样式
+            selectedElement.classList.remove('bg-gray-200', 'text-black');
+            selectedElement.classList.add('bg-blue-500', 'text-white');
+        }
+    </script>
+
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="min-h-screen flex flex-col items-center justify-center">
+        <!-- Listening Test Container -->
+        <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+            <!-- Audio Element (Hidden) -->
+            <audio id="testAudio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+            <!-- Audio Play Button -->
+            <div class="flex justify-center mb-4">
+                <button onclick="playAudio()"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                    Play Audio
+                </button>
+            </div>
+
+            <!-- Question Options -->
+            <!-- Question Options -->
+            <div class="space-y-2">
+                <button onclick="selectOption(this)"
+                    class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+                    Option 1
+                </button>
+                <button onclick="selectOption(this)"
+                    class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+                    Option 2
+                </button>
+                <button onclick="selectOption(this)"
+                    class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+                    Option 3
+                </button>
+                <button onclick="selectOption(this)"
+                    class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+                    Option 4
+                </button>
+            </div>
+            <a href="./index2.html">Visit W3Schools.com!</a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
