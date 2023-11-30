@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duolingo Style Reading Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function checkAnswer(selectedOption) {
+            console.log(selectedOption,"-----")
+            if (selectedOption === 2) {
+                alert("Correct ! Keep it up !")
+            } else {
+                alert("Wrong, maybe next time :-( ")
+            }
+        }
+    </script>
+
 </head>
 
 <body class="bg-gray-100">
@@ -25,21 +36,26 @@
 
             <!-- Answer Options -->
             <div class="space-y-2">
-                <button
+                <button 
+                    onclick="checkAnswer(1)"
                     class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+                
                     Nassın
                 </button>
-                <button
+                <button 
+                    onclick="checkAnswer(2)"
                     class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                     Nasılsın
 
                 </button>
-                <button
+                <button 
+                    onclick="checkAnswer(3)"
                     class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                     Nalıssın
 
                 </button>
-                <button
+                <button 
+                    onclick="checkAnswer(4)"
                     class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                     Naslın
 
@@ -47,8 +63,10 @@
             </div>
 
         </div>
+        
     </div>
 
 </body>
+
 
 </html>
