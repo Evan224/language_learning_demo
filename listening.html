@@ -6,6 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duolingo Style Listening Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Style for the popup */
+        .popup {
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 20px;
+          background-color: #fff;
+          border: 2px solid #333;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          z-index: 1;
+        }
+    </style>
+
     <script>
         function playAudio() {
             var audio = document.getElementById("testAudio");
@@ -29,6 +46,33 @@
             selectedElement.classList.remove('bg-gray-200', 'text-black');
             selectedElement.classList.add('bg-blue-500', 'text-white');
         }
+
+
+        // Function to check the answer and display the popup
+        function checkAnswer(isCorrect) {
+            console.log(isCorrect)
+            var popup = document.getElementById("answerPopup");
+            var popupText = document.getElementById("popupText");
+
+            if (isCorrect) {
+            popupText.innerText = "Correct Answer!";
+            } else {
+            popupText.innerText = "Wrong Answer!";
+            }
+
+            // Display the popup
+            popup.style.display = "block";
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            var popup = document.getElementById("answerPopup");
+            
+            // Hide the popup
+            popup.style.display = "none";
+        }
+
+
     </script>
 
 </head>
@@ -52,19 +96,19 @@
             <!-- Question Options -->
             <!-- Question Options -->
             <div class="space-y-2">
-                <button onclick="selectOption(this)"
+                <button onclick="selectOption(this); checkAnswer(false)"
                     class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                     verde
                 </button>
-                <button onclick="selectOption(this)"
+                <button onclick="selectOption(this); checkAnswer(true)"
                     class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                     rosso
                 </button>
-                <button onclick="selectOption(this)"
+                <button onclick="selectOption(this); checkAnswer(false)"
                     class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
-                    arancione
+                    aranciones
                 </button>
-                <button onclick="selectOption(this)"
+                <button onclick="selectOption(this); checkAnswer(false)"
                     class="option-button w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                     viola
                 </button>
@@ -72,6 +116,11 @@
 
 
         </div>
+    </div>
+
+    <div id="answerPopup" class="popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 border-2 border-gray-300 shadow-md">
+        <p id="popupText" class="text-lg font-bold mb-4"></p>
+        <button onclick="closePopup()" class="bg-blue-500 text-white px-4 py-2 rounded">Close</button>
     </div>
 
 </body>

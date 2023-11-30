@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Answer Popup</title>
+  <style>
+    /* Style for the popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #fff;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Buttons -->
+<button onclick="checkAnswer(true)">Correct Answer</button>
+<button onclick="checkAnswer(false)">Wrong Answer</button>
+
+<!-- Popup -->
+<div id="answerPopup" class="popup">
+  <p id="popupText"></p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+  // Function to check the answer and display the popup
+  function checkAnswer(isCorrect) {
+    var popup = document.getElementById("answerPopup");
+    var popupText = document.getElementById("popupText");
+
+    if (isCorrect) {
+      popupText.innerText = "Correct Answer!";
+    } else {
+      popupText.innerText = "Wrong Answer!";
+    }
+
+    // Display the popup
+    popup.style.display = "block";
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    var popup = document.getElementById("answerPopup");
+    
+    // Hide the popup
+    popup.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
