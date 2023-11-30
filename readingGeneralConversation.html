@@ -23,7 +23,7 @@
 
         <!-- Question -->
         <div class="mb-4">
-            <p class="text-lg font-semibold">Domanda:</p>
+            <p class="text-lg font-semibold">Question:</p>
             <p class="text-gray-600 mt-2">
                 Traduci questa espressione in italiano
             </p>
@@ -31,26 +31,55 @@
 
         <!-- Answer Options -->
         <div class="space-y-2">
-            <button
-                    class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+            <button onclick="checkAnswer('Buonasera')"
+                    class="w-full text-left bg-green-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                 Buonasera
             </button>
-            <button
-                    class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+            <button onclick="checkAnswer('Ciao')"
+                    class="w-full text-left bg-red-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                 Ciao
             </button>
-            <button
-                    class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+            <button onclick="checkAnswer('Buongiorno')"
+                    class="w-full text-left bg-blue-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                 Buongiorno
             </button>
-            <button
-                    class="w-full text-left bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
+            <button onclick="checkAnswer('Buonanotte')"
+                    class="w-full text-left bg-yellow-200 hover:bg-gray-300 text-black font-semibold py-2 px-4 rounded-lg">
                 Buonanotte
             </button>
         </div>
 
     </div>
 </div>
+
+<div id="popup" class="fixed top-0 left-0 w-full h-full flex items-center justify-center hidden">
+    <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
+        <p id="popup-text" class="text-lg font-semibold text-gray-600"></p>
+        <button onclick="closePopup()"
+                class="w-full mt-4 text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+            Close
+        </button>
+    </div>
+</div>
+
+<script>
+        function checkAnswer(selectedAnswer) {
+            if (selectedAnswer === 'Buongiorno') {
+                showPopup('Correct!');
+            } else {
+                showPopup('Incorrect');
+            }
+        }
+        function showPopup(message) {
+            document.getElementById('popup-text').innerText = message;
+            document.getElementById('popup').classList.remove('hidden');
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.add('hidden');
+        }
+
+    </script>
 
 </body>
 
